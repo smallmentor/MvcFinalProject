@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("權限系統展示", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a href="/Home/Logon">Logon</a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>
+                            <a href="/Admin/Index">關於管理者</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Index1">管理者介紹</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Index2">管理者位置</a>
+                        </li>
+                        <li>
+                            <a href="/GBs/Index">管理者留言</a>
+                        </li>
+                        <li>
+                            <a href="/Home/Index">管理者權限</a>
+                        </li>
+
+                    }
+
+                    @if (User.IsInRole("tea"))
+                    {
+                        <li>
+                            <a href="/Tea/Index">學歷介紹</a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("stud"))
+                    {
+                        <li>
+                            <a href="/Stud/Index">自我介紹</a>
+                        </li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a href="/Home/Logout">Logout</a>
+                        </li>
+
+                        <li>
+                            <a href=""> 使用者: @HttpContext.Current.User.Identity.Name @Session["user"] </a>
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

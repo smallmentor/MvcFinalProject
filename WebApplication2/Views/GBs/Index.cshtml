@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WebApplication2.Models.GB>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>愛慕者留言</h2>
+
+<p>
+    @Html.ActionLink("預約", "Create")
+</p>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <span style="color:hotpink">主旨：</span>@Html.DisplayFor(x => item.Title)<br />
+                <span style="color:hotpink">留言內容：</span>@Html.DisplayFor(x => item.Content)<br />
+                <span style="color:hotpink">留言時間：</span>@Html.DisplayFor(x => item.CreatedDate)<br />
+                <span style="color:hotpink">愛慕者姓名：</span>@Html.DisplayFor(x => item.Name)
+            </td>
+        </tr>
+    }
