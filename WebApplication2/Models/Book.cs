@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -48,7 +49,7 @@ namespace WebApplication2.Models
         public virtual ICollection<WriterBook> WriterBook { get; set; }
 
         public virtual Publisher Publisher { get; set; }
-        }
+    }
 
 
     public class Publisher
@@ -60,5 +61,16 @@ namespace WebApplication2.Models
 
 
         public virtual ICollection<Book> Books { get; set; }
+    }
+
+    public class BookDBConnection : DbContext
+    {
+        public DbSet<Book> Books { get; set; }
+
+        public DbSet<Writer> Writers { get; set; }
+
+        public DbSet<WriterBook> WriterBooks { get; set; }
+
+        public DbSet<Publisher> Publishers { get; set; }
     }
 }

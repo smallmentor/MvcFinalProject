@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<WebApplication2.Models.SUserRole>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "使用者群組管理";
 }
 
-<h2>Index</h2>
+<h2>使用者群組管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增", "Create")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.RoleId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("修改", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("細節", "Details", new { id=item.Id }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

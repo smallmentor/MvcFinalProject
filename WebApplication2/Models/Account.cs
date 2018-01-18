@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace WebApplication2.Models
     {
         [Key]
         public int Id { get; set; }
-
+        [DisplayName("帳號")]
         public string Account { get; set; }
-
+        [DisplayName("姓名")]
         public string Name { get; set; }
-
+        [DisplayName("密碼")]
         public string Password { get; set; }
 
     }
@@ -24,9 +25,9 @@ namespace WebApplication2.Models
     public class SUserRole
     {
         public int Id { get; set; }
-
+        [DisplayName("帳號")]
         public string Account { get; set; }
-
+        [DisplayName("群組")]
         public string RoleId { get; set; }
     }
 
@@ -36,8 +37,6 @@ namespace WebApplication2.Models
         public int Id { get; set; }
         public string RoleId { get; set; }
         public string RoleName { get; set; }
-
-
     }
 
     public class DB2 : DbContext

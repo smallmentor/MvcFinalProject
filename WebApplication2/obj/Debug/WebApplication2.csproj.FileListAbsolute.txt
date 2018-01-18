@@ -221,7 +221,7 @@ E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\bin\zh-Hant\Sys
 E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\bin\zh-Hant\System.Web.Webpages.Razor.resources.dll
 E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\bin\zh-Hant\System.Web.Helpers.resources.dll
 E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\bin\zh-Hant\System.Web.Mvc.resources.dll
-E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\obj\Debug\WebApplication2.csproj.CoreCompileInputs.cache
 E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\obj\Debug\WebApplication2.dll
 E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\obj\Debug\WebApplication2.pdb
+E:\VisualStudio2017Project\repos\MvcFinalProject\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache

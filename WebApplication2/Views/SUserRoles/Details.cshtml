@@ -1,13 +1,13 @@
 ﻿@model WebApplication2.Models.SUserRole
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "使用者群組管理";
 }
 
-<h2>Details</h2>
+<h2>細節</h2>
 
 <div>
-    <h4>SUserRole</h4>
+    <h4>使用者群組</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("修改", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("回使用者群組管理清單", "Index")
 </p>

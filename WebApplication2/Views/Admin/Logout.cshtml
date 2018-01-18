@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Logout";
+}
+
+<h1>登入</h1>
+<form action="/Admin/Logon" method="post">
+    帳號：<input type="text" name="account" /> <br />
+    密碼：<input type="password" name="password" /><br />
+    <input type="submit" value="送出" />
+</form>
+
+<h2>  @ViewBag.check</h2>
+
+

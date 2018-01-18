@@ -21,6 +21,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+
                     <li class="nav-item active">
                         <a class="nav-link" href="#">
                             首頁
@@ -31,24 +32,21 @@
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="/Home/Logon">登入</a>
-                        </li>
-                    }
-
-                    @if (User.IsInRole("admin"))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/SUsers/Index">使用者管理</a>
+                            <a class="nav-link" href="/Admin/Logon">登入</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/SUserRoles/Index">使用者群組管理</a>
+                            <a class="nav-link" href="/Admin/Signup">註冊</a>
                         </li>
                     }
 
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="/Home/Logout">登出</a>
+                            <a class="nav-link" href=""> 使用者: @HttpContext.Current.User.Identity.Name @Session["user"] </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Logout">登出</a>
                         </li>
                     }
                 </ul>
@@ -61,8 +59,12 @@
             <div class="col-lg-3">
                 <h1 class="my-4">第八書店</h1>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="/SUsers/Index" class="list-group-item">使用者管理</a>
+                        <a href="/SUserRoles/Index" class="list-group-item">使用者群組管理</a>
+                    }
+                                       
                     <a href="#" class="list-group-item">Category 3</a>
 
                 </div>
