@@ -126,6 +126,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BookDB.mdf" />
+    <Content Include="App_Data\BookDB_log.ldf">
+      <DependentUpon>BookDB.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\DB2.mdf" />
     <Content Include="App_Data\DB2_log.ldf">
       <DependentUpon>DB2.mdf</DependentUpon>
@@ -185,6 +189,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
