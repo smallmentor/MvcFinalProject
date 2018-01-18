@@ -12,7 +12,7 @@ namespace WebApplication2.Controllers
 {
     public class PublishersController : Controller
     {
-        private BookConnection db = new BookConnection();
+        private StoreConnection db = new StoreConnection();
 
         // GET: Publishers
         public ActionResult Index()

@@ -126,13 +126,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Book.mdf" />
-    <Content Include="App_Data\Book_log.ldf">
-      <DependentUpon>Book.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\DB2.mdf" />
     <Content Include="App_Data\DB2_log.ldf">
       <DependentUpon>DB2.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Store.mdf" />
+    <Content Include="App_Data\Store_log.ldf">
+      <DependentUpon>Store.mdf</DependentUpon>
     </Content>
     <Content Include="BootStrap\.gitignore" />
     <Content Include="BootStrap\css\shop-homepage.css" />
@@ -193,13 +193,12 @@
     <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\SUserRolesController.cs" />
     <Compile Include="Controllers\SUsersController.cs" />
-    <Compile Include="Controllers\WriterBooksController.cs" />
     <Compile Include="Controllers\WritersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

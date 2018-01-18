@@ -12,12 +12,12 @@ namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        private BookConnection db = new BookConnection();
+        private StoreConnection db = new StoreConnection();
 
         // GET: Home
         public ActionResult Index()
         {
-            var books = db.Books.Include(b => b.Publisher);
+            var books = db.Books.Include(b => b.Publisher).Include(b => b.Writer);
             return View(books.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace WebApplication2.Controllers
         public ActionResult Create()
         {
             ViewBag.PubID = new SelectList(db.Publishers, "PubID", "PubName");
+            ViewBag.WriterID = new SelectList(db.Writers, "WriterID", "WriterName");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace WebApplication2.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookID,BookName,Price,ISBN,PubID")] Book book)
+        public ActionResult Create([Bind(Include = "BookID,BookName,Price,ISBN,PubID,WriterID")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace WebApplication2.Controllers
             }
 
             ViewBag.PubID = new SelectList(db.Publishers, "PubID", "PubName", book.PubID);
+            ViewBag.WriterID = new SelectList(db.Writers, "WriterID", "WriterName", book.WriterID);
             return View(book);
         }
 
@@ -74,6 +76,7 @@ namespace WebApplication2.Controllers
                 return HttpNotFound();
             }
             ViewBag.PubID = new SelectList(db.Publishers, "PubID", "PubName", book.PubID);
+            ViewBag.WriterID = new SelectList(db.Writers, "WriterID", "WriterName", book.WriterID);
             return View(book);
         }
 
@@ -82,7 +85,7 @@ namespace WebApplication2.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookID,BookName,Price,ISBN,PubID")] Book book)
+        public ActionResult Edit([Bind(Include = "BookID,BookName,Price,ISBN,PubID,WriterID")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +94,7 @@ namespace WebApplication2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.PubID = new SelectList(db.Publishers, "PubID", "PubName", book.PubID);
+            ViewBag.WriterID = new SelectList(db.Writers, "WriterID", "WriterName", book.WriterID);
             return View(book);
         }
 
