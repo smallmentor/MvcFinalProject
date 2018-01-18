@@ -13,10 +13,9 @@ namespace WebApplication2.Controllers
         private DB2 db = new DB2();
 
         // GET: Admin
-        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
         //登入
         public ActionResult Logon()
@@ -30,7 +29,7 @@ namespace WebApplication2.Controllers
             {
                 LoginProcess(account, true);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             else
             {
@@ -90,7 +89,7 @@ namespace WebApplication2.Controllers
             cookie2.Expires = DateTime.Now.AddYears(-1);
             Response.Cookies.Add(cookie2);
 
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Index", "Home");
         }
 
         //註冊帳號
@@ -106,7 +105,7 @@ namespace WebApplication2.Controllers
             {
                 db.SUsers.Add(sUser);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(sUser);
         }

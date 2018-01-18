@@ -4,27 +4,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h3>圖書清單</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.IsInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("新增", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Publisher.PubName)
+            @Html.DisplayNameFor(model => model.BookName)
+            
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Writer.WriterName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BookName)
+            @Html.DisplayNameFor(model => model.Publisher.PubName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ISBN)
         </th>
         <th></th>
     </tr>
@@ -32,24 +33,33 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Publisher.PubName)
+            @Html.DisplayFor(modelItem => item.BookName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Writer.WriterName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BookName)
+            @Html.DisplayFor(modelItem => item.Publisher.PubName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ISBN)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
+            @if (User.IsInRole("admin"))
+            {
+                <a>
+                    @Html.ActionLink("修改", "Edit", new { id = item.BookID }) |
+                </a>
+            }
+            
+            @Html.ActionLink("詳細", "Details", new { id=item.BookID })
+
+            @if (User.IsInRole("admin"))
+            {
+                <a>
+                    | @Html.ActionLink("刪除", "Delete", new { id = item.BookID })
+                </a>
+            }
         </td>
     </tr>
 }

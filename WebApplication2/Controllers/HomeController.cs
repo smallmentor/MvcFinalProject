@@ -10,11 +10,13 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
+
     public class HomeController : Controller
     {
         private StoreConnection db = new StoreConnection();
 
         // GET: Home
+        [Authorize]
         public ActionResult Index()
         {
             var books = db.Books.Include(b => b.Publisher).Include(b => b.Writer);
@@ -22,6 +24,7 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Home/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Home/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             ViewBag.PubID = new SelectList(db.Publishers, "PubID", "PubName");
@@ -49,6 +53,7 @@ namespace WebApplication2.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Create([Bind(Include = "BookID,BookName,Price,ISBN,PubID,WriterID")] Book book)
         {
             if (ModelState.IsValid)
@@ -64,6 +69,7 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Home/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +91,7 @@ namespace WebApplication2.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit([Bind(Include = "BookID,BookName,Price,ISBN,PubID,WriterID")] Book book)
         {
             if (ModelState.IsValid)
@@ -99,6 +106,7 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Home/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -116,6 +124,7 @@ namespace WebApplication2.Controllers
         // POST: Home/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Book book = db.Books.Find(id);

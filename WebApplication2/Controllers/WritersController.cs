@@ -10,6 +10,7 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class WritersController : Controller
     {
         private StoreConnection db = new StoreConnection();
