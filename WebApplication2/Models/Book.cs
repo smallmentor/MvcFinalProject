@@ -10,9 +10,10 @@ namespace WebApplication2.Models
 {
     public class Writer
     {
-        public string WriterID { get; set; }
+        [Key]
+        public int WriterID { get; set; }
         [DisplayName("作者")]
-        public string WiterName { get; set; }
+        public string WriterName { get; set; }
 
 
         public virtual ICollection<WriterBook> WriterBooks { get; set; }
@@ -35,6 +36,7 @@ namespace WebApplication2.Models
 
     public class Book
     {
+        [Key]
         public int BookID { get; set; }
         [DisplayName("書名")]
         public string BookName { get; set; }
@@ -63,7 +65,7 @@ namespace WebApplication2.Models
         public virtual ICollection<Book> Books { get; set; }
     }
 
-    public class BookDBConnection : DbContext
+    public class BookConnection : DbContext
     {
         public DbSet<Book> Books { get; set; }
 

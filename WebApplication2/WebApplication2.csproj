@@ -126,9 +126,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\BookDB.mdf" />
-    <Content Include="App_Data\BookDB_log.ldf">
-      <DependentUpon>BookDB.mdf</DependentUpon>
+    <Content Include="App_Data\Book.mdf" />
+    <Content Include="App_Data\Book_log.ldf">
+      <DependentUpon>Book.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\DB2.mdf" />
     <Content Include="App_Data\DB2_log.ldf">
@@ -163,8 +163,15 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\SUsers\Create.cshtml" />
     <Content Include="Views\SUsers\Delete.cshtml" />
     <Content Include="Views\SUsers\Details.cshtml" />
@@ -182,8 +189,12 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\SUserRolesController.cs" />
     <Compile Include="Controllers\SUsersController.cs" />
+    <Compile Include="Controllers\WriterBooksController.cs" />
+    <Compile Include="Controllers\WritersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +216,26 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Store_Layout.cshtml" />
     <Content Include="Views\Admin\Signup.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Publishers\Create.cshtml" />
+    <Content Include="Views\Publishers\Delete.cshtml" />
+    <Content Include="Views\Publishers\Details.cshtml" />
+    <Content Include="Views\Publishers\Edit.cshtml" />
+    <Content Include="Views\Publishers\Index.cshtml" />
+    <Content Include="Views\WriterBooks\Create.cshtml" />
+    <Content Include="Views\WriterBooks\Delete.cshtml" />
+    <Content Include="Views\WriterBooks\Details.cshtml" />
+    <Content Include="Views\WriterBooks\Edit.cshtml" />
+    <Content Include="Views\WriterBooks\Index.cshtml" />
+    <Content Include="Views\Writers\Create.cshtml" />
+    <Content Include="Views\Writers\Delete.cshtml" />
+    <Content Include="Views\Writers\Details.cshtml" />
+    <Content Include="Views\Writers\Edit.cshtml" />
+    <Content Include="Views\Writers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
