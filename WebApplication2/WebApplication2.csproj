@@ -225,11 +225,6 @@
     <Content Include="Views\Publishers\Details.cshtml" />
     <Content Include="Views\Publishers\Edit.cshtml" />
     <Content Include="Views\Publishers\Index.cshtml" />
-    <Content Include="Views\WriterBooks\Create.cshtml" />
-    <Content Include="Views\WriterBooks\Delete.cshtml" />
-    <Content Include="Views\WriterBooks\Details.cshtml" />
-    <Content Include="Views\WriterBooks\Edit.cshtml" />
-    <Content Include="Views\WriterBooks\Index.cshtml" />
     <Content Include="Views\Writers\Create.cshtml" />
     <Content Include="Views\Writers\Delete.cshtml" />
     <Content Include="Views\Writers\Details.cshtml" />

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<WebApplication2.Models.Writer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "作者";
 }
 
-<h2>Index</h2>
+<h2>作者</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.WriterName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WriterID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WriterID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WriterID })
+            @Html.ActionLink("修改", "Edit", new { id=item.WriterID }) |
+            @Html.ActionLink("細節", "Details", new { id=item.WriterID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.WriterID })
         </td>
     </tr>
 }

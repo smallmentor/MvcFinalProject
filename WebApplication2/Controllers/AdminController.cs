@@ -71,7 +71,7 @@ namespace WebApplication2.Controllers
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
             Response.Cookies.Add(cookie);
         }
-
+        //登出並回到重新登入畫面
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
@@ -89,7 +89,7 @@ namespace WebApplication2.Controllers
             cookie2.Expires = DateTime.Now.AddYears(-1);
             Response.Cookies.Add(cookie2);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
 
         //註冊帳號

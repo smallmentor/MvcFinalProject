@@ -1,21 +1,17 @@
 ﻿@model WebApplication2.Models.Book
 
-@{
-    ViewBag.Title = "Details";
-}
 
-<h2>Details</h2>
+<h2>細節</h2>
 
 <div>
-    <h4>Book</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Publisher.PubName)
+            @Html.DisplayNameFor(model => model.BookName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Publisher.PubName)
+            @Html.DisplayFor(model => model.BookName)
         </dd>
 
         <dt>
@@ -27,11 +23,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BookName)
+            @Html.DisplayNameFor(model => model.Publisher.PubName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BookName)
+            @Html.DisplayFor(model => model.Publisher.PubName)
         </dd>
 
         <dt>
@@ -39,7 +35,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price) $
         </dd>
 
         <dt>
@@ -53,6 +49,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("admin"))
+    {
+        <a>
+            @Html.ActionLink("修改", "Edit", new { id = Model.BookID }) |
+        </a>
+    }
+    @Html.ActionLink("回清單", "Index")
 </p>

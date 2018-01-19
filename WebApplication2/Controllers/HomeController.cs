@@ -15,15 +15,17 @@ namespace WebApplication2.Controllers
     {
         private StoreConnection db = new StoreConnection();
 
-        // GET: Home
+        // 首頁
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(int id = 0)
         {
-            var books = db.Books.Include(b => b.Publisher).Include(b => b.Writer);
-            return View(books.ToList());
+            // 分頁顯示 1頁7筆資料
+            var data = db.Books.OrderByDescending(x => x.BookID).Skip(id * 7).Take(7).ToList();
+            ViewBag.pageNo = id;
+            return View(data);
         }
 
-        // GET: Home/Details/5
+        // 細節
         [Authorize]
         public ActionResult Details(int? id)
         {
@@ -39,7 +41,7 @@ namespace WebApplication2.Controllers
             return View(book);
         }
 
-        // GET: Home/Create
+        // 新增
         [Authorize(Roles = "admin")]
         public ActionResult Create()
         {

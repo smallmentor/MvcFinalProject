@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>出版社</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.PubName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PubID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PubID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PubID })
+            @Html.ActionLink("修改", "Edit", new { id=item.PubID }) |
+            @Html.ActionLink("細節", "Details", new { id=item.PubID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.PubID })
         </td>
     </tr>
 }

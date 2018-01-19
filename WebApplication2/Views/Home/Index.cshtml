@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<WebApplication2.Models.Book>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h3>圖書清單</h3>
+<h3>精選書籍</h3>
 
 @if (User.IsInRole("admin"))
 {
@@ -16,7 +12,6 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BookName)
-            
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Writer.WriterName)
@@ -42,7 +37,7 @@
             @Html.DisplayFor(modelItem => item.Publisher.PubName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @Html.DisplayFor(modelItem => item.Price) $ 
         </td>
         <td>
             @if (User.IsInRole("admin"))
@@ -63,5 +58,16 @@
         </td>
     </tr>
 }
-
 </table>
+@{
+    var pgNext = ViewBag.pageNo + 1;
+
+    var pgPre = ViewBag.pageNo;
+    if (ViewBag.pageNo > 0)
+    {
+        pgPre = ViewBag.pageNo - 1;
+    }
+
+}
+<a href="/Home/Index/@pgPre">上一頁</a> | 
+<a href="/Home/Index/@pgNext">下一頁</a>
